@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
+
 import {
   ArrowRight,
   Zap,
@@ -25,20 +26,20 @@ export function Hero() {
     },
   };
 
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 25,
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 25,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.25, 0.1, 0.25, 1],
     },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
+  },
+};
 
   return (
     <section  id="hero" className="relative h-screen overflow-hidden">
@@ -51,7 +52,7 @@ top-0
 left-0
 right-0
 h-48
-bg-gradient-to-b
+bg-linear-to-b
 from-black/30
 to-transparent
 "
@@ -90,8 +91,8 @@ absolute
 top-0
 left-1/2
 -translate-x-1/2
-w-[900px]
-h-[350px]
+w-225
+h-87.5
 bg-white/5
 blur-[120px]
 rounded-full
@@ -103,7 +104,7 @@ rounded-full
 className="
 absolute
 inset-0
-bg-gradient-to-r
+bg-linear-to-r
 from-[#08111d]/88
 via-[#08111d]/45
 to-transparent
@@ -118,7 +119,7 @@ to-transparent
   top-0
   bottom-0
   w-[55%]
-  bg-gradient-to-r
+  bg-linear-to-r
   from-[#08111d]/35
   to-transparent
   backdrop-blur-[2px]
@@ -135,7 +136,7 @@ to-transparent
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="max-w-[760px]"
+            className="max-w-190"
           >
 
             {/* Badge */}
@@ -195,7 +196,7 @@ to-transparent
              Powering India’s 
 
 
-              <span className="block bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent">
+              <span className="block bg-linear-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent">
 
                 Electric Future
 
@@ -209,7 +210,7 @@ to-transparent
               variants={itemVariants}
               className="
               mt-8
-              max-w-[620px]
+              max-w-155
               text-base
               md:text-lg
               leading-9
@@ -345,7 +346,7 @@ to-transparent
                   }}
                   className="
                   group
-                  w-[310px]
+                  w-77.5
                   rounded-[28px]
                   border
                   border-white/15
@@ -433,7 +434,7 @@ bottom-12
 left-8
 lg:left-14
 xl:left-16
-w-[900px]
+w-225
 
               "
             >
@@ -446,7 +447,6 @@ w-[900px]
   border
   border-white/15
   bg-black/20
-  bg-white/10
   backdrop-blur-[30px]
   shadow-[0_20px_60px_rgba(0,0,0,.20)]
 "

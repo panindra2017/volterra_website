@@ -22,26 +22,44 @@ interface Product {
 const categories = [
   "All Products",
   "Home",
-  "Commercial",
-  "DC Fast",
-  "Fleet",
+  "Business",
+  "Fast DC",
+  "Ultra DC",
 ];
 
 const products: Product[] = [
   {
     id: 1,
-    name: "Volterra Home AC Charger",
+    name: "Volterra Nova",
     category: "Home",
-    power: "7.4kW",
-    image: "/images/home_product.png",
+    power: "3.3 kW",
+    image: "/images/image.png",
+    description:
+      "Smart AC charging solution designed for residential EV charging.",
+  },
+    {
+    id: 2,
+    name: "Volterra Vega",
+    category: "Home",
+    power: "7.4 kW",
+    image: "/images/products/commercial-ac.png",
+    description:
+      "Smart AC charging solution designed for residential EV charging.",
+  },
+    {
+    id: 3,
+    name: "Volterra Lyra",
+    category: "Home",
+    power: "11 kW",
+    image: "/images/products/commercial-ac.png",
     description:
       "Smart AC charging solution designed for residential EV charging.",
   },
 
   {
-    id: 2,
-    name: "Commercial AC Charger",
-    category: "Commercial",
+    id: 4,
+    name: "Volterra Orion",
+    category: "Business",
     power: "22kW",
     image: "/images/products/commercial-ac.png",
     description:
@@ -49,20 +67,60 @@ const products: Product[] = [
   },
 
   {
-    id: 3,
-    name: "Ultra Fast DC Charger",
-    category: "DC Fast",
-    power: "120kW",
+    id: 5,
+    name: "Volterra Sirius",
+    category: "Fast DC",
+    power: "30kW",
     image: "/images/products/dc-fast.png",
     description:
       "High-speed public charging built for highways and smart cities.",
   },
 
   {
-    id: 4,
-    name: "Fleet Charging Station",
-    category: "Fleet",
+    id: 6,
+    name: "Volterra Polaris",
+    category: "Fast DC",
     power: "60kW",
+    image: "/images/products/fleet.png",
+    description:
+      "Intelligent charging infrastructure for commercial fleets.",
+  },
+
+  {
+    id: 7,
+    name: "Volterra Zenith",
+    category: "Ultra DC",
+    power: "120kW",
+    image: "/images/products/fleet.png",
+    description:
+      "Intelligent charging infrastructure for commercial fleets.",
+  },
+
+  {
+    id: 7,
+    name: "Volterra Eclipse",
+    category: "Fast DC",
+    power: "180kW",
+    image: "/images/products/fleet.png",
+    description:
+      "Intelligent charging infrastructure for commercial fleets.",
+  },
+
+  {
+    id: 8,
+    name: "Volterra Infinity",
+    category: "Ultra DC",
+    power: "240kW",
+    image: "/images/products/fleet.png",
+    description:
+      "Intelligent charging infrastructure for commercial fleets.",
+  },
+
+  {
+    id: 9,
+    name: "Volterra Cosmos",
+    category: "Fast DC",
+    power: "360kW",
     image: "/images/products/fleet.png",
     description:
       "Intelligent charging infrastructure for commercial fleets.",

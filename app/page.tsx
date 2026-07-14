@@ -15,7 +15,7 @@ export default function Page() {
 
       <Process />
 
-      <Testimonials />
+      {/* <Testimonials /> */}
 
       <FAQ />
 
