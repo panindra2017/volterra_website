@@ -644,7 +644,7 @@ lg:px-14 px-6 py-24">
 
                       <p className="mt-1 font-medium">
 
-                        +91 98765 43210
+                        +91 80954 34443
 
                       </p>
 
@@ -911,7 +911,7 @@ lg:px-14 px-6 py-24">
               <div className="flex flex-col items-center justify-between gap-4 text-sm text-gray-500 md:flex-row">
 
                 <p>
-                  Designed & Developed with ❤️ by Volterra Energy
+                  Designed & Developed with ❤️ by Vinsmart
                 </p>
 
                 <div className="flex items-center gap-2">

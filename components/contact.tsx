@@ -17,7 +17,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    value: "+91 XXXXX XXXXX",
+    value: "+91 80954 34443",
     sub: "Mon - Sat | 9:00 AM - 7:00 PM",
   },
 
