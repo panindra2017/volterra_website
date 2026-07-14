@@ -21,8 +21,8 @@ interface Product {
 
 const categories = [
   "All Products",
-  "Home",
-  "Business",
+  "Residential",
+  "Corporate",
   "Fast DC",
   "Ultra DC",
 ];
@@ -31,7 +31,7 @@ const products: Product[] = [
   {
     id: 1,
     name: "Volterra Lite",
-    category: "Home",
+    category: "Residential",
     power: "3.3 kW",
     image: "/images/home_product.png",
     description:
@@ -40,7 +40,7 @@ const products: Product[] = [
     {
     id: 2,
     name: "Volterra GO",
-    category: "Home",
+    category: "Residential",
     power: "7.4 kW",
     image: "/images/products/commercial-ac.png",
     description:
@@ -49,7 +49,7 @@ const products: Product[] = [
     {
     id: 3,
     name: "Volterra One",
-    category: "Home",
+    category: "Residential",
     power: "11 kW",
     image: "/images/products/commercial-ac.png",
     description:
@@ -59,7 +59,7 @@ const products: Product[] = [
   {
     id: 4,
     name: "Volterra Pro",
-    category: "Business",
+    category: "Corporate",
     power: "22kW",
     image: "/images/products/commercial-ac.png",
     description:
@@ -69,7 +69,7 @@ const products: Product[] = [
   {
     id: 5,
     name: "Volterra Plus",
-    category: "Fast DC",
+    category: "Destination",
     power: "30kW",
     image: "/images/products/dc-fast.png",
     description:
@@ -79,7 +79,7 @@ const products: Product[] = [
   {
     id: 6,
     name: "Volterra Max",
-    category: "Fast DC",
+    category: "Destination",
     power: "60kW",
     image: "/images/products/fleet.png",
     description:
@@ -89,7 +89,7 @@ const products: Product[] = [
   {
     id: 7,
     name: "Volterra Prime",
-    category: "Ultra DC",
+    category: "Public",
     power: "120kW",
     image: "/images/products/fleet.png",
     description:
@@ -99,7 +99,7 @@ const products: Product[] = [
   {
     id: 7,
     name: "Volterra Elite",
-    category: "Fast DC",
+    category: "Public",
     power: "180kW",
     image: "/images/products/fleet.png",
     description:
@@ -109,7 +109,7 @@ const products: Product[] = [
   {
     id: 8,
     name: "Volterra Ultra",
-    category: "Ultra DC",
+    category: "Public",
     power: "240kW",
     image: "/images/products/fleet.png",
     description:
@@ -119,7 +119,7 @@ const products: Product[] = [
   {
     id: 9,
     name: "Volterra Infinity",
-    category: "Fast DC",
+    category: "Public",
     power: "360kW",
     image: "/images/products/fleet.png",
     description:
