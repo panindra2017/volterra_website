@@ -42,7 +42,7 @@ const industries = [
   },
 
   {
-    title: "Hospitality",
+    title: "Destination Charging",
     icon: Hotel,
     description:
       "Destination charging that enhances guest experience for EV travelers.",
@@ -193,7 +193,7 @@ export default function Industries() {
                     "
                   >
                   Volterra Energy delivers intelligent EV charging infrastructure
-                  designed for residential communities, workplaces, hospitality,
+                  designed for residential communities, workplaces, destination charging,
                   highways, fleet operators and public spaces.
                   </p>
         
@@ -437,7 +437,7 @@ export default function Industries() {
                   </div>
 
                   <div>
-                    <p className="text-2xl font-black">99.9%</p>
+                    <p className="text-2xl font-black">96%</p>
                     <span className="text-sm text-white/80">
                       Network Reliability
                     </span>
