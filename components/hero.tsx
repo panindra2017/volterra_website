@@ -12,6 +12,7 @@ import {
   Building2,
   BatteryCharging,
   ChevronDown,
+  Cpu,
 } from "lucide-react";
 
 export function Hero() {
@@ -304,27 +305,27 @@ to-transparent
   "
 >
   {[
-    {
-      icon: <Zap size={18} />,
-      value: "0-80%",
-      label: "in just 15 min",
-    },
-    {
-      icon: <ShieldCheck size={18} />,
-      value: "100%",
-      label: "Safe & Reliable",
-    },
-    {
-      icon: <Leaf size={18} />,
-      value: "100%",
-      label: "Green Energy",
-    },
-    {
-      icon: <Network size={18} />,
-      value: "24/7",
-      label: "Smart Monitoring",
-    },
-  ].map((item, index) => (
+{
+icon:<Cpu />,
+value:"AI",
+label:"Powered Platform",
+},
+{
+icon:<BatteryCharging />,
+value:"AC & DC",
+label:"Smart Chargers",
+},
+{
+icon:<Network />,
+value:"CMS",
+label:"Cloud Management",
+},
+{
+icon:<Leaf />,
+value:"Green",
+label:"Energy Ready",
+}
+].map((item, index) => (
     <div
       key={item.label}
       className={`
@@ -403,7 +404,7 @@ to-transparent
                 {
                   icon: <Zap size={24} />,
                   title: "Ultra Fast Charging",
-                  description: "0–80% in just 15 minutes",
+                  description: "0–80% in just 30 minutes",
                 },
                 {
                   icon: <ShieldCheck size={24} />,

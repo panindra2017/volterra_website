@@ -33,7 +33,7 @@ const products: Product[] = [
     name: "Volterra Lite",
     category: "Residential",
     power: "3.3 kW",
-    image: "/images/home_product.png",
+    image: "/images/3.3kw_charger.png",
     description:
       "Smart AC charging solution designed for residential EV charging.",
   },

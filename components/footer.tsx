@@ -671,7 +671,7 @@ lg:px-14 px-6 py-20">
 
 {/* ===================== MAIN FOOTER ===================== */}
 
-<div className="grid gap-12 border-b border-white/10 pb-12 lg:grid-cols-[1.1fr_2fr]">
+<div className="grid gap-12 border-b border-white/10 pb-12 lg:grid-cols-[1.1fr_2fr] -mt-6">
 
   {/* ================= LEFT ================= */}
 
@@ -686,10 +686,9 @@ lg:px-14 px-6 py-20">
     </Link>
 
     <p className="mt-5 max-w-md text-gray-400 leading-7">
-      Volterra Energy delivers intelligent EV charging
-      infrastructure for homes, businesses, fleets and public
-      charging networks, accelerating India's transition toward
-      sustainable mobility.
+     VOLTERRA Energy is building the intelligent infrastructure behind India's electric mobility 
+     revolution—connecting technology, energy, 
+     infrastructure, investors, businesses, and EV users through one scalable charging ecosystem.
     </p>
 
     {/* Follow Us */}
@@ -741,13 +740,13 @@ lg:px-14 px-6 py-20">
 
           <div
             key={index}
-            className="flex h-14 w-20 items-center justify-center rounded-lg border border-white/10 bg-white/5"
+            className="flex h-16 w-20 items-center justify-center rounded-lg border border-white/10 bg-white/5"
           >
 
             <img
               src={image}
               alt=""
-              className="max-h-8 w-auto object-contain"
+              className="max-h-12 w-auto object-contain"
             />
 
           </div>
@@ -864,7 +863,7 @@ lg:px-14 px-6 py-20">
 </div>
 
 
- <div className="flex flex-col items-center justify-between gap-4 py-8 text-sm text-gray-400 lg:flex-row">
+ <div className="flex flex-col items-center justify-between gap-4 py-6 text-sm text-gray-400 lg:flex-row -mb-10">
 
   <p>
     © {new Date().getFullYear()}

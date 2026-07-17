@@ -1,756 +1,468 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-
 import {
-  Hotel,
-  MonitorSmartphone,
+  Home,
   Building2,
+  Hotel,
+  Zap,
+  Truck,
   ShoppingBag,
   Building,
-  Hospital,
-  GraduationCap,
   Landmark,
-  Plane,
-  Truck,
-  Fuel,
-  UtensilsCrossed,
-  Home,
-  ArrowUpRight,
+  ArrowRight,
 } from "lucide-react";
 
 const industries = [
   {
-    no: "01",
-    title: "Hotels & Resorts",
-    desc: "Premium EV charging for hospitality and guest parking.",
-    icon: Hotel,
-  },
-  {
-    no: "02",
-    title: "IT Parks",
-    desc: "Smart workplace charging for employees and visitors.",
-    icon: MonitorSmartphone,
-  },
-  {
-    no: "03",
-    title: "Corporate Offices",
-    desc: "Reliable charging infrastructure for business campuses.",
-    icon: Building2,
-  },
-  {
-    no: "04",
-    title: "Shopping Malls",
-    desc: "Enhance customer experience with destination charging.",
-    icon: ShoppingBag,
-  },
-  {
-    no: "05",
-    title: "Apartment Communities",
-    desc: "Convenient EV charging for residential complexes.",
-    icon: Building,
-  },
-  {
-    no: "06",
-    title: "Hospitals",
-    desc: "24×7 charging solutions for healthcare facilities.",
-    icon: Hospital,
-  },
-  {
-    no: "07",
-    title: "Educational Institutions",
-    desc: "Future-ready campuses with sustainable mobility.",
-    icon: GraduationCap,
-  },
-  {
-    no: "08",
-    title: "Government Organizations",
-    desc: "Scalable public EV charging infrastructure.",
-    icon: Landmark,
-  },
-  {
-    no: "09",
-    title: "Airports",
-    desc: "Fast charging for travelers and airport fleets.",
-    icon: Plane,
-  },
-  {
-    no: "10",
-    title: "Fleet Operators",
-    desc: "High-performance fleet charging with energy management.",
-    icon: Truck,
-  },
-  {
-    no: "11",
-    title: "Petrol Pumps",
-    desc: "Transform fuel stations into EV charging hubs.",
-    icon: Fuel,
-  },
-  {
-    no: "12",
-    title: "Restaurants",
-    desc: "Increase customer dwell time with charging facilities.",
-    icon: UtensilsCrossed,
-  },
-  {
-    no: "13",
-    title: "Real Estate Developers",
-    desc: "Integrate EV charging into modern developments.",
+    title: "Residential",
     icon: Home,
+    description:
+      "Reliable EV charging solutions designed for homes and residential communities.",
+    sectors: [
+      "Apartments",
+      "RWAs",
+      "Gated Communities",
+      "Individual Homes",
+    ],
+  },
+
+  {
+    title: "Corporate",
+    icon: Building2,
+    description:
+      "Smart workplace charging infrastructure for employees and visitors.",
+    sectors: [
+      "Corporate Offices",
+      "Technology Parks",
+      "Business Campuses",
+      "Employee Parking",
+    ],
+  },
+
+  {
+    title: "Hospitality",
+    icon: Hotel,
+    description:
+      "Destination charging that enhances guest experience for EV travelers.",
+    sectors: [
+      "Hotels",
+      "Resorts",
+      "Restaurants",
+      "Cafés",
+    ],
+  },
+
+  {
+    title: "Highways",
+    icon: Zap,
+    description:
+      "Ultra-fast charging infrastructure for long-distance travel.",
+    sectors: [
+      "Expressways",
+      "National Highways",
+      "Travel Corridors",
+      "Charging Hubs",
+    ],
+  },
+
+  {
+    title: "Fleet & Logistics",
+    icon: Truck,
+    description:
+      "Dedicated charging infrastructure for commercial fleet operators.",
+    sectors: [
+      "Fleet Operators",
+      "Logistics",
+      "Delivery Services",
+      "Commercial EVs",
+    ],
+  },
+
+  {
+    title: "Retail & Commercial",
+    icon: ShoppingBag,
+    description:
+      "Charging solutions that increase customer engagement and dwell time.",
+    sectors: [
+      "Shopping Malls",
+      "Retail Stores",
+      "Supermarkets",
+      "Commercial Centers",
+    ],
+  },
+
+  {
+    title: "Real Estate",
+    icon: Building,
+    description:
+      "Helping developers build EV-ready communities.",
+    sectors: [
+      "Builders",
+      "Developers",
+      "Townships",
+      "Commercial Projects",
+    ],
+  },
+
+  {
+    title: "Public Infrastructure",
+    icon: Landmark,
+    description:
+      "Scalable charging solutions for public mobility.",
+    sectors: [
+      "Public Parking",
+      "Government Projects",
+      "Institutions",
+      "Public Charging",
+    ],
   },
 ];
 
-export function Industries() {
+export default function Industries() {
+  const [active, setActive] = useState(0);
+
+  const current = industries[active];
+  const Icon = current.icon;
 
   return (
-
-<section
-id="industries"
-className="
-relative
-overflow-hidden
-bg-[#F8FAFC]
-py-32
-"
->
-
-{/* Background Glow */}
-
-<div
-className="
-absolute
-left-0
-top-0
-h-[450px]
-w-[450px]
-rounded-full
-bg-lime-500/10
-blur-[140px]
-"
-/>
-
-<div
-className="
-absolute
-right-0
-bottom-0
-h-[450px]
-w-[450px]
-rounded-full
-bg-green-500/10
-blur-[140px]
-"
-/>
-
-{/* Engineering Grid */}
-
-<div
-className="
-absolute
-inset-0
-opacity-[0.04]
-[background-image:linear-gradient(#0f172a_1px,transparent_1px),linear-gradient(90deg,#0f172a_1px,transparent_1px)]
-[background-size:70px_70px]
-"
-/>
-
-<div
-className="
-relative
-z-10
-mx-auto
-max-w-[1500px]
-px-6
-lg:px-10
-"
->
-
-<motion.div
-
-initial={{ opacity: 0, y: 40 }}
-
-whileInView={{ opacity: 1, y: 0 }}
-
-viewport={{ once: true }}
-
-transition={{ duration: .8 }}
-
-className="text-center"
-
->
-
-<div
-className="
-inline-flex
-rounded-full
-border
-border-lime-500/20
-bg-lime-500/10
-px-4
-py-2
-text-xs
-font-bold
-uppercase
-tracking-[3px]
-text-lime-600
-"
->
-
-Industries We Serve
-
-</div>
-
-<h2
-className="
-mt-6
-text-5xl
-lg:text-6xl
-font-black
-leading-tight
-text-slate-900
-"
->
-
-Powering Every
-
-<span className="text-lime-600">
-
- Industry
-
-</span>
-
-</h2>
-
-<p
-className="
-mx-auto
-mt-7
-max-w-3xl
-text-lg
-leading-9
-text-slate-600
-"
->
-
-Volterra delivers intelligent EV charging
-solutions tailored for commercial,
-enterprise, public and residential sectors,
-helping businesses embrace sustainable mobility.
-
-</p>
-
-</motion.div>
-
-{/* ====================================== */}
-{/* PART 2 STARTS HERE */}
-{/* ========================================= */}
-{/* INDUSTRY CARDS */}
-{/* ========================================= */}
-
-<div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-
-  {industries.slice(0, 8).map((item, index) => {
-
-    const Icon = item.icon;
-
-    return (
-
-      <motion.div
-
-        key={item.title}
-
-        initial={{ opacity: 0, y: 40 }}
-
-        whileInView={{ opacity: 1, y: 0 }}
-
-        viewport={{ once: true }}
-
-        transition={{
-          delay: index * 0.08,
-          duration: 0.6,
-        }}
-
-        whileHover={{
-          y: -10,
-        }}
-
-        className="
-        group
-        relative
-        overflow-hidden
-        rounded-[30px]
-        border
-        border-slate-200
-        bg-white
-        p-7
-        shadow-[0_15px_45px_rgba(0,0,0,.05)]
-        transition-all
-        duration-500
-        hover:border-lime-400
-        hover:shadow-[0_25px_60px_rgba(132,204,22,.18)]
-        "
-      >
-
-        {/* Background Glow */}
-
-        <div
-          className="
-          absolute
-          -right-24
-          -top-24
-          h-40
-          w-40
-          rounded-full
-          bg-lime-500/10
-          blur-[90px]
-          opacity-0
-          transition-all
-          duration-500
-          group-hover:opacity-100
-          "
-        />
-
-        {/* Top */}
-
-        <div className="flex items-start justify-between">
-
-          <span
-            className="
-            text-2xl
-            font-black
-            text-slate-200
-            transition-all
-            duration-500
-            group-hover:text-lime-500/30
-            "
-          >
-            {item.no}
-          </span>
-
-          <div
-            className="
-            flex
-            h-14
-            w-14
-            items-center
-            justify-center
-            rounded-2xl
-            bg-lime-500/10
-            transition-all
-            duration-500
-            group-hover:bg-lime-500
-            "
-          >
-
-            <Icon
-              className="
-              h-7
-              w-7
-              text-lime-600
-              transition-all
-              duration-500
-              group-hover:rotate-6
-              group-hover:text-white
-              "
-            />
-
-          </div>
-
-        </div>
-
-        {/* Title */}
-
-        <h3
-          className="
-          mt-6
-          text-xl
-          font-bold
-          leading-snug
-          text-slate-900
-          "
-        >
-          {item.title}
-        </h3>
-
-        {/* Description */}
-
-        <p
-          className="
-          mt-4
-          leading-7
-          text-slate-600
-          "
-        >
-          {item.desc}
-        </p>
-
-        {/* Divider */}
-
-        <div className="my-6 h-px bg-slate-200" />
-
-        {/* Footer */}
-
-        <button
-          className="
-          flex
-          items-center
-          gap-3
-          font-semibold
-          text-lime-600
-          transition-all
-          duration-300
-          group-hover:gap-5
-          "
-        >
-
-          Explore Industry
-
-          <ArrowUpRight
-            className="
-            h-5
-            w-5
-            transition-all
-            duration-300
-            group-hover:translate-x-1
-            group-hover:-translate-y-1
-            "
-          />
-
-        </button>
-
-      </motion.div>
-
-    );
-
-  })}
-
-</div>
-
-{/* ========================================= */}
-{/* PART 3 STARTS HERE */}
-{/* ========================================= */}
-{/* REMAINING INDUSTRIES */}
-{/* ========================================= */}
-
-<div className="mt-8 flex justify-center">
-
-  <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3 max-w-6xl">
-
-    {industries.slice(8).map((item, index) => {
-
-      const Icon = item.icon;
-
-      return (
-
-        <motion.div
-
-          key={item.title}
-
-          initial={{ opacity: 0, y: 40 }}
-
-          whileInView={{ opacity: 1, y: 0 }}
-
-          viewport={{ once: true }}
-
-          transition={{
-            delay: index * 0.08,
-            duration: 0.6,
-          }}
-
-          whileHover={{
-            y: -10,
-          }}
-
-          className="
-          group
-          relative
-          overflow-hidden
-          rounded-[30px]
-          border
-          border-slate-200
-          bg-white
-          p-7
-          shadow-[0_15px_45px_rgba(0,0,0,.05)]
-          transition-all
-          duration-500
-          hover:border-lime-400
-          hover:shadow-[0_25px_60px_rgba(132,204,22,.18)]
-          "
-        >
-
-          {/* Glow */}
-
-          <div
-            className="
-            absolute
-            -right-24
-            -top-24
-            h-40
-            w-40
-            rounded-full
-            bg-lime-500/10
-            blur-[90px]
-            opacity-0
-            transition-all
-            duration-500
-            group-hover:opacity-100
-            "
-          />
-
-          {/* Top */}
-
-          <div className="flex items-start justify-between">
-
-            <span
-              className="
-              text-2xl
-              font-black
-              text-slate-200
-              transition
-              group-hover:text-lime-500/30
-              "
-            >
-              {item.no}
-            </span>
-
-            <div
-              className="
-              flex
-              h-14
-              w-14
-              items-center
-              justify-center
-              rounded-2xl
-              bg-lime-500/10
-              transition-all
-              duration-500
-              group-hover:bg-lime-500
-              "
-            >
-
-              <Icon
-                className="
-                h-7
-                w-7
-                text-lime-600
-                transition-all
-                duration-500
-                group-hover:text-white
-                group-hover:rotate-6
-                "
-              />
+    <section    className="relative overflow-hidden bg-[#F8FAFC] py-28"
+    >
+      {/* Background Glow */}
+
+      <div className="absolute left-0 top-0 h-125 w-125 rounded-full bg-lime-400/10 blur-[140px]" />
+
+      <div className="absolute right-0 bottom-0 h-125 w-125 rounded-full bg-slate-300/20 blur-[150px]" />
+
+      <div className="relative mx-auto max-w-375 px-6 lg:px-12">
+
+                {/* Header */}
+
+         <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: .8 }}
+                  className="mb-20 text-center"
+                >
+        
+                  <div
+                    className="
+                    inline-flex
+                    items-center
+                    rounded-full
+                    border
+                    border-lime-500/20
+                    bg-lime-500/10
+                    px-3
+                    py-1
+                    text-xs
+                    font-semibold
+                    tracking-widest
+                    uppercase
+                    text-lime-600
+                    "
+                  >
+        
+                      WHO WE SERVE
+        
+                  </div>
+        
+                  <h2
+                    className="
+                    mt-4
+                    text-4xl
+                    lg:text-5xl
+                    font-black
+                    leading-tight
+                    text-slate-900
+                    "
+                  >
+                     Charging Solutions <span className=" text-lime-600"> for Every Ecosystem</span>
+                  </h2>
+        
+                  <p
+                    className="
+                    mx-auto
+                    mt-3
+                    max-w-4xl
+                    text-lg
+                    leading-7
+                    text-slate-600
+                    "
+                  >
+                  Volterra Energy delivers intelligent EV charging infrastructure
+                  designed for residential communities, workplaces, hospitality,
+                  highways, fleet operators and public spaces.
+                  </p>
+        
+                </motion.div>
+        
+
+        {/* Main Layout */}
+
+        <div className="-mt-6 grid gap-16 lg:grid-cols-[340px_1fr]">
+
+          {/* ================= LEFT SIDE ================= */}
+
+          <div>
+
+            <div className="sticky top-28">
+
+              <h3 className="mb-8 text-xl font-bold text-slate-900">
+                Industries
+              </h3>
+
+              <div className="space-y-3">
+
+                {industries.map((industry, index) => (
+
+                  <button
+                    key={industry.title}
+                    onClick={() => setActive(index)}
+                    className={`group flex w-full items-center justify-between rounded-2xl border px-6 py-5 text-left transition-all duration-300
+
+                    ${
+                      active === index
+                        ? "border-lime-500 bg-lime-500 text-white shadow-xl"
+                        : "border-slate-200 bg-white hover:border-lime-400 hover:shadow-md"
+                    }`}
+                  >
+
+                    <span
+                      className={`font-semibold text-lg
+
+                      ${
+                        active === index
+                          ? "text-white"
+                          : "text-slate-700"
+                      }`}
+                    >
+                      {industry.title}
+                    </span>
+
+                    <ArrowRight
+                      className={`h-5 w-5 transition-transform duration-300
+
+                      ${
+                        active === index
+                          ? "translate-x-1"
+                          : "group-hover:translate-x-1"
+                      }`}
+                    />
+
+                  </button>
+
+                ))}
+
+              </div>
 
             </div>
 
           </div>
 
-          {/* Title */}
+          {/* ================= RIGHT SIDE ================= */}
 
-          <h3
-            className="
-            mt-6
-            text-xl
-            font-bold
-            text-slate-900
-            "
-          >
-            {item.title}
-          </h3>
-
-          {/* Description */}
-
-          <p
-            className="
-            mt-4
-            leading-7
-            text-slate-600
-            "
-          >
-            {item.desc}
-          </p>
-
-          <div className="my-6 h-px bg-slate-200" />
-
-          <button
-            className="
-            flex
-            items-center
-            gap-3
-            font-semibold
-            text-lime-600
-            transition-all
-            duration-300
-            group-hover:gap-5
-            "
+          <motion.div
+            key={current.title}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: .45 }}
+            className="overflow-hidden rounded-[36px] border border-slate-200 bg-white shadow-[0_20px_60px_rgba(15,23,42,.06)]"
           >
 
-            Explore Industry
+            {/* Hero */}
 
-            <ArrowUpRight
-              className="
-              h-5
-              w-5
-              transition-all
-              duration-300
-              group-hover:translate-x-1
-              group-hover:-translate-y-1
-              "
-            />
+            <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-10">
 
-          </button>
+              <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-lime-500/20 blur-[120px]" />
 
-        </motion.div>
+              <div className="relative z-10 flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between -mb-6">
 
-      );
+                <div>
 
-    })}
+                  <div className="flex h-18 w-18 items-center justify-center rounded-3xl bg-gradient-to-br from-lime-500 to-green-600 text-white shadow-2xl">
 
-  </div>
+                    <Icon className="h-12 w-12" />
 
-</div>
+                  </div>
 
-{/* ========================================= */}
-{/* CTA */}
-{/* ========================================= */}
+                  <h2 className="mt-6 text-5xl font-black text-white">
 
-<motion.div
+                    {current.title}
 
-  initial={{ opacity: 0, y: 40 }}
+                  </h2>
 
-  whileInView={{ opacity: 1, y: 0 }}
+                  <p className="mt-3 max-w-2xl text-lg leading-8 text-slate-300">
 
-  viewport={{ once: true }}
+                    {current.description}
 
-  transition={{ duration: .8 }}
+                  </p>
 
-  className="
-  mt-24
-  overflow-hidden
-  rounded-[36px]
-  bg-gradient-to-r
-  from-slate-900
-  via-[#111827]
-  to-slate-900
-  p-12
-  shadow-[0_25px_70px_rgba(0,0,0,.18)]
-  "
+                </div>
 
->
+                <div className="hidden lg:block">
 
-  <div
-    className="
-    relative
-    z-10
-    grid
-    items-center
-    gap-10
-    lg:grid-cols-[1fr_auto]
-    "
-  >
+                  <span className="text-[160px] font-black text-white/5">
+                    {String(active + 1).padStart(2, "0")}
+                  </span>
 
-    {/* Left */}
+                </div>
 
-    <div>
+              </div>
 
-      <div
-        className="
-        inline-flex
-        rounded-full
-        border
-        border-lime-500/20
-        bg-lime-500/10
-        px-5
-        py-2
-        text-xs
-        font-semibold
-        uppercase
-        tracking-[3px]
-        text-lime-400
-        "
-      >
+            </div>
+                        {/* Content */}
 
-        Tailored Industry Solutions
+            <div className="grid gap-12 p-12 lg:grid-cols-[1fr_280px]">
+
+              {/* Left */}
+
+              <div>
+
+                <div>
+
+                  <p className="text-sm font-bold uppercase tracking-[3px] text-lime-600">
+                    Ideal For
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-4">
+
+                    {current.sectors.map((sector) => (
+                      <div
+                        key={sector}
+                        className="rounded-full border border-lime-200 bg-lime-50 px-5 py-3 text-sm font-semibold text-slate-700 transition-all duration-300 hover:border-lime-500 hover:bg-lime-500 hover:text-white"
+                      >
+                        ✓ {sector}
+                      </div>
+                    ))}
+
+                  </div>
+
+                </div>
+
+                {/* Features */}
+
+                <div className="mt-12 grid gap-5 md:grid-cols-2">
+
+                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                    <h4 className="font-bold text-slate-900">
+                      Smart Charging
+                    </h4>
+
+                    <p className="mt-3 leading-7 text-slate-600">
+                      Intelligent AC & DC charging with remote monitoring and
+                      energy optimization.
+                    </p>
+                  </div>
+
+                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                    <h4 className="font-bold text-slate-900">
+                      Future Ready
+                    </h4>
+
+                    <p className="mt-3 leading-7 text-slate-600">
+                      Modular infrastructure that grows as your EV adoption
+                      increases.
+                    </p>
+                  </div>
+
+                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                    <h4 className="font-bold text-slate-900">
+                      Reliable Support
+                    </h4>
+
+                    <p className="mt-3 leading-7 text-slate-600">
+                      Professional installation, maintenance and 24×7 technical
+                      assistance.
+                    </p>
+                  </div>
+
+                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                    <h4 className="font-bold text-slate-900">
+                      Scalable Network
+                    </h4>
+
+                    <p className="mt-3 leading-7 text-slate-600">
+                      Easily expand charging capacity as your infrastructure
+                      grows.
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* Right Sidebar */}
+
+              <div className="rounded-[30px] bg-gradient-to-br from-lime-500 to-green-600 p-8 text-white">
+
+                <h3 className="text-2xl font-bold">
+                  Ready to Electrify?
+                </h3>
+
+                <p className="mt-3 leading-6 text-white/90">
+                  Build a reliable charging ecosystem tailored to your
+                  organization with Volterra Energy.
+                </p>
+
+                <button
+                  className="
+                    mt-6
+                    w-full
+                    rounded-2xl
+                    bg-white
+                    px-6
+                    py-3
+                    font-semibold
+                    text-slate-900
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:shadow-xl
+                    cursor-pointer
+                  "
+                >
+                  Request Consultation
+                </button>
+
+                <div className="mt-7 space-y-4 border-t border-white/20 pt-8">
+
+                  <div className="-mt-4">
+                    <p className="text-2xl font-black">500+</p>
+                    <span className="text-sm text-white/80">
+                      Charging Points
+                    </span>
+                  </div>
+
+                  <div>
+                    <p className="text-2xl font-black">99.9%</p>
+                    <span className="text-sm text-white/80">
+                      Network Reliability
+                    </span>
+                  </div>
+
+                  <div>
+                    <p className="text-2xl font-black">24×7</p>
+                    <span className="text-sm text-white/80">
+                      Technical Support
+                    </span>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </motion.div>
+
+        </div>
 
       </div>
 
-      <h3
-        className="
-        mt-6
-        text-4xl
-        lg:text-5xl
-        font-black
-        leading-tight
-        text-white
-        "
-      >
+    </section>
 
-        Ready to Electrify
-
-        <span className="text-lime-400">
-
-          {" "}Your Industry?
-
-        </span>
-
-      </h3>
-
-      <p
-        className="
-        mt-6
-        max-w-2xl
-        text-lg
-        leading-8
-        text-slate-300
-        "
-      >
-
-        Whether you're managing a hotel, corporate campus,
-        hospital, shopping mall, residential community,
-        airport or fleet operation, Volterra delivers
-        customized EV charging infrastructure designed
-        for your business.
-
-      </p>
-
-    </div>
-
-    {/* Button */}
-
-    <button
-      className="
-      inline-flex
-      items-center
-      gap-3
-      rounded-2xl
-      bg-gradient-to-r
-      from-lime-500
-      to-green-600
-      px-10
-      py-5
-      text-lg
-      font-semibold
-      text-white
-      transition-all
-      duration-300
-      hover:-translate-y-1
-      hover:shadow-[0_20px_50px_rgba(132,204,22,.35)]
-      "
-    >
-
-      Schedule Consultation
-
-      <ArrowUpRight className="h-5 w-5" />
-
-    </button>
-
-  </div>
-
-</motion.div>
-
-</div>
-
-</section>
-
-);
-
+  );
 }
