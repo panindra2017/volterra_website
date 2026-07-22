@@ -1,14 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import {
   Search,
   SlidersHorizontal,
   ArrowRight,
   BatteryCharging,
+  BadgeDollarSign,
+  X,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface Product {
   id: number;
@@ -61,7 +64,7 @@ const products: Product[] = [
     name: "Volterra Pro",
     category: "Corporate",
     power: "22kW",
-    image: "/images/products/commercial-ac.png",
+    image: "/images/productsimages/22kw_charger.png",
     description:
       "Reliable charging infrastructure for offices and commercial spaces.",
   },
@@ -69,9 +72,9 @@ const products: Product[] = [
   {
     id: 5,
     name: "Volterra Plus",
-    category: "Destination",
+    category: "Corporate",
     power: "30kW",
-    image: "/images/products/dc-fast.png",
+    image: "/images/productsimages/33kw_charger.png",
     description:
       "High-speed public charging built for highways and smart cities.",
   },
@@ -79,7 +82,7 @@ const products: Product[] = [
   {
     id: 6,
     name: "Volterra Max",
-    category: "Destination",
+    category: "Fast DC",
     power: "60kW",
     image: "/images/productsimages/60kw_charger.png",
     description:
@@ -89,7 +92,7 @@ const products: Product[] = [
   {
     id: 7,
     name: "Volterra Prime",
-    category: "Public",
+    category: "Ultra DC",
     power: "120kW",
     image: "/images/productsimages/120kw_charger.png",
     description:
@@ -97,9 +100,9 @@ const products: Product[] = [
   },
 
   {
-    id: 7,
+    id: 8,
     name: "Volterra Elite",
-    category: "Public",
+    category: "Ultra DC",
     power: "180kW",
     image: "/images/productsimages/180kw_charger.png",
     description:
@@ -107,21 +110,21 @@ const products: Product[] = [
   },
 
   {
-    id: 8,
+    id: 9,
     name: "Volterra Ultra",
-    category: "Public",
+    category: "Ultra DC",
     power: "240kW",
-    image: "/images/products/fleet.png",
+    image: "/images/productsimages/240kw_charger.png",
     description:
       "Intelligent charging infrastructure for commercial fleets.",
   },
 
   {
-    id: 9,
+    id: 10,
     name: "Volterra Infinity",
-    category: "Public",
+    category: "Ultra DC",
     power: "360kW",
-    image: "/images/products/fleet.png",
+     image: "/images/productsimages/360kw_charger.png",
     description:
       "Intelligent charging infrastructure for commercial fleets.",
   },
@@ -129,6 +132,23 @@ const products: Product[] = [
 
 export function Products() {
 
+    const router = useRouter()
+
+       const [showPartnerModal, setShowPartnerModal] = useState(false);
+
+       const investorForm =
+  "https://docs.google.com/forms/d/e/1FAIpQLSctRL3vu3BlnSh-BkhTGda8dszCS3Lv21sSinrKr-6VnMNjnw/viewform";
+
+const hostForm =
+  "https://forms.gle/xr4URstRx15xA2ik7";
+
+const openInvestorForm = () => {
+  window.open(investorForm, "_blank");
+};
+
+const openHostForm = () => {
+  window.open(hostForm, "_blank");
+};
   const [selectedCategory, setSelectedCategory] =
     useState("All Products");
 
@@ -430,26 +450,6 @@ shadow-[0_15px_45px_rgba(0,0,0,.05)]
 
     </button>
 
-    <button
-      className="
-      rounded-2xl
-      bg-lime-500
-      px-4
-      py-2
-      font-semibold
-      text-white
-      shadow-lg
-      shadow-lime-500/30
-      transition-all
-      duration-300
-      hover:scale-105
-      "
-    >
-
-      Download Catalogue
-
-    </button>
-
   </div>
 
 </div>
@@ -536,7 +536,7 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
 
 {/* Image */}
 
-<div className="relative flex h-72 items-center justify-center overflow-hidden">
+<div className="relative flex h-80 items-center justify-center overflow-hidden">
 
   <div
     className="
@@ -628,7 +628,7 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
 
   </div>
 
-  <div className="my-8 h-px bg-slate-200" />
+  {/* <div className="my-8 h-px bg-slate-200" /> */}
 
   <div className="flex items-center">
 
@@ -644,7 +644,7 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
 
     </div> */}
 
-    <button
+    {/* <button
       className="
       flex
       items-center
@@ -660,7 +660,7 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
 
       <ArrowRight className="h-5 w-5" />
 
-    </button>
+    </button> */}
 
   </div>
 
@@ -765,6 +765,7 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
     <div className="mt-12 flex flex-wrap justify-center gap-5">
 
       <button
+        onClick={() => setShowPartnerModal(true)}
         className="
         rounded-2xl
         bg-lime-500
@@ -775,12 +776,14 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
         transition-all
         duration-300
         hover:scale-105
+        cursor-pointer
         "
       >
-        Request Consultation
+        Join Volterra
       </button>
 
       <button
+           onClick={() => router.push('/contact')}
         className="
         rounded-2xl
         border
@@ -793,9 +796,10 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
         transition-all
         duration-300
         hover:bg-white/20
+        cursor-pointer
         "
       >
-        Download Catalogue
+        Contact Us
       </button>
 
     </div>
@@ -805,6 +809,286 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
 </motion.div>
 
 </div>
+
+ <AnimatePresence>
+
+{showPartnerModal && (
+
+<motion.div
+
+initial={{ opacity: 0 }}
+animate={{ opacity: 1 }}
+exit={{ opacity: 0 }}
+
+className="
+fixed
+inset-0
+z-[999]
+flex
+items-center
+justify-center
+bg-black/60
+backdrop-blur-md
+px-6
+"
+
+>
+
+<motion.div
+
+initial={{
+opacity:0,
+scale:.92,
+y:30
+}}
+
+animate={{
+opacity:1,
+scale:1,
+y:0
+}}
+
+exit={{
+opacity:0,
+scale:.95
+}}
+
+transition={{
+duration:.35
+}}
+
+className="
+relative
+w-full
+max-w-4xl
+overflow-hidden
+rounded-[36px]
+bg-white
+shadow-[0_40px_120px_rgba(0,0,0,.35)]
+"
+
+>
+
+<button
+
+onClick={() => setShowPartnerModal(false)}
+
+className="
+absolute
+right-6
+top-6
+flex
+h-11
+w-11
+items-center
+justify-center
+rounded-full
+bg-slate-100
+hover:bg-slate-200
+"
+
+>
+
+<X className="h-5 w-5"/>
+
+</button>
+
+<div className="p-12">
+
+<div className="text-center">
+
+<div
+className="
+inline-flex
+rounded-full
+bg-lime-100
+px-4
+py-2
+text-xs
+font-medium
+uppercase
+text-lime-700
+"
+>
+
+Partner With VOLTERRA
+
+</div>
+
+<h2 className="mt-4 text-3xl font-black text-slate-900">
+
+Let's Build Together
+
+</h2>
+
+<p className="mt-2 text-base text-slate-600">
+
+Choose how you'd like to partner with VOLTERRA Energy.
+
+</p>
+
+</div>
+
+<div className="mt-10 grid gap-8 md:grid-cols-2">
+
+{/* Investor */}
+
+<motion.div
+
+whileHover={{
+y:-8
+}}
+
+className="
+group
+rounded-[32px]
+border
+border-slate-200
+p-5
+transition-all
+duration-300
+hover:border-lime-400
+hover:shadow-xl
+"
+
+>
+
+<div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-lime-100">
+
+<BadgeDollarSign className="h-5 w-5 text-lime-600"/>
+
+</div>
+
+<h3 className="mt-3 text-xl font-bold">
+
+Become an Investor
+
+</h3>
+
+<p className="mt-2 leading-7 text-slate-600">
+
+Invest in India's growing EV charging network through VOLTERRA's flexible business models.
+
+</p>
+
+<button
+
+onClick={()=>{
+setShowPartnerModal(false);
+openInvestorForm();
+}}
+
+className="
+mt-7
+flex
+items-center
+gap-2
+rounded-xl
+bg-lime-600
+px-4
+py-2
+font-semibold
+text-white
+transition
+hover:bg-lime-700
+cursor-pointer
+"
+
+>
+
+Continue
+
+<ArrowRight className="h-5 w-5"/>
+
+</button>
+
+</motion.div>
+
+{/* Host */}
+
+<motion.div
+
+whileHover={{
+y:-8
+}}
+
+className="
+group
+rounded-[32px]
+border
+border-slate-200
+p-8
+transition-all
+duration-300
+hover:border-lime-400
+hover:shadow-xl
+
+"
+
+>
+
+<div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-lime-100">
+
+<BatteryCharging className="h-5 w-5 text-lime-600"/>
+
+</div>
+
+<h3 className="mt-3 text-xl font-bold">
+
+Need EV Charging Station
+
+</h3>
+
+<p className="mt-2 leading-7 text-slate-600">
+
+Install smart EV charging infrastructure at your apartment, hotel, office, mall, fleet depot or commercial property.
+
+</p>
+
+<button
+
+onClick={()=>{
+setShowPartnerModal(false);
+openHostForm();
+}}
+
+className="
+mt-7
+flex
+items-center
+gap-2
+rounded-xl
+bg-slate-900
+px-4
+py-2
+font-semibold
+text-white
+transition
+hover:bg-slate-800
+cursor-pointer
+"
+
+>
+
+Continue
+
+<ArrowRight className="h-5 w-5"/>
+
+</button>
+
+</motion.div>
+
+</div>
+
+</div>
+
+</motion.div>
+
+</motion.div>
+
+)}
+
+</AnimatePresence>
 
 </section>
 

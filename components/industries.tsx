@@ -14,6 +14,7 @@ import {
   ArrowRight,
   Hospital,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const industries = [
   {
@@ -143,6 +144,8 @@ const industries = [
 ];
 
 export default function Industries() {
+    const router = useRouter()
+
   const [active, setActive] = useState(0);
 
   const current = industries[active];
@@ -633,19 +636,20 @@ export default function Industries() {
                   Ready to Electrify?
                 </h3>
 
-                <p className="mt-3 leading-6 text-white/90">
+                <p className="mt-3 leading-7 text-white/90">
                   Build a reliable charging ecosystem tailored to your
                   organization with Volterra Energy.
                 </p>
 
                 <button
+                  onClick={() => router.push('/contact')}
                   className="
-                    mt-6
+                    mt-7
                     w-full
                     rounded-2xl
                     bg-white
                     px-6
-                    py-3
+                    py-4
                     font-semibold
                     text-slate-900
                     transition-all
@@ -658,14 +662,14 @@ export default function Industries() {
                   Request Consultation
                 </button>
 
-                <div className="mt-7 space-y-4 border-t border-white/20 pt-8">
+                <div className="mt-8 space-y-4 border-t border-white/20 pt-8">
 
-                  <div className="-mt-4">
+                  {/* <div className="-mt-4">
                     <p className="text-2xl font-black">500+</p>
                     <span className="text-sm text-white/80">
                       Charging Points
                     </span>
-                  </div>
+                  </div> */}
 
                   <div>
                     <p className="text-2xl font-black">96%</p>

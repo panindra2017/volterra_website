@@ -14,6 +14,7 @@ import {
   Headphones,
   Leaf,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const processSteps = [
   {
@@ -75,6 +76,9 @@ const processSteps = [
 ];
 
 export function Process() {
+
+    const router = useRouter()
+
   return (
 
 <section
@@ -541,6 +545,7 @@ justify-center
 >
 
 <button
+   onClick={() => router.push('/contact')}
 className="
 rounded-2xl
 bg-gradient-to-r

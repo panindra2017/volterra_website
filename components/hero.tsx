@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 
 import {
   ArrowRight,
@@ -13,9 +13,31 @@ import {
   BatteryCharging,
   ChevronDown,
   Cpu,
+  BadgeDollarSign,
+  X,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export function Hero() {
+    const router = useRouter()
+
+      const [showPartnerModal, setShowPartnerModal] = useState(false);
+    
+    const investorForm =
+      "https://docs.google.com/forms/d/e/1FAIpQLSctRL3vu3BlnSh-BkhTGda8dszCS3Lv21sSinrKr-6VnMNjnw/viewform";
+    
+    const hostForm =
+      "https://forms.gle/xr4URstRx15xA2ik7";
+    
+    const openInvestorForm = () => {
+      window.open(investorForm, "_blank");
+    };
+    
+    const openHostForm = () => {
+      window.open(hostForm, "_blank");
+    };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -233,6 +255,7 @@ to-transparent
               {/* Primary */}
 
               <button
+               onClick={() => router.push('/products')}
                 className="
                 group
                 h-11
@@ -253,8 +276,7 @@ to-transparent
 
                 <span className="flex items-center gap-3">
 
-                   Request a Quote
-
+                  Explore Products
                   <ArrowRight
                     size={18}
                     className="transition-transform duration-300 group-hover:translate-x-1"
@@ -267,6 +289,7 @@ to-transparent
               {/* Secondary */}
 
               <button
+              onClick={() => setShowPartnerModal(true)}
                 className="
                 h-11
                 rounded-2xl
@@ -284,7 +307,7 @@ to-transparent
                 cursor-pointer
                 "
               >
-                Become a Charging Partner
+                Join Volterra
 
               </button>
 
@@ -529,6 +552,286 @@ rounded-full
 pointer-events-none
 "
 />
+
+      <AnimatePresence>
+
+{showPartnerModal && (
+
+<motion.div
+
+initial={{ opacity: 0 }}
+animate={{ opacity: 1 }}
+exit={{ opacity: 0 }}
+
+className="
+fixed
+inset-0
+z-[999]
+flex
+items-center
+justify-center
+bg-black/60
+backdrop-blur-md
+px-6
+"
+
+>
+
+<motion.div
+
+initial={{
+opacity:0,
+scale:.92,
+y:30
+}}
+
+animate={{
+opacity:1,
+scale:1,
+y:0
+}}
+
+exit={{
+opacity:0,
+scale:.95
+}}
+
+transition={{
+duration:.35
+}}
+
+className="
+relative
+w-full
+max-w-4xl
+overflow-hidden
+rounded-[36px]
+bg-white
+shadow-[0_40px_120px_rgba(0,0,0,.35)]
+"
+
+>
+
+<button
+
+onClick={() => setShowPartnerModal(false)}
+
+className="
+absolute
+right-6
+top-6
+flex
+h-11
+w-11
+items-center
+justify-center
+rounded-full
+bg-slate-100
+hover:bg-slate-200
+"
+
+>
+
+<X className="h-5 w-5"/>
+
+</button>
+
+<div className="p-12">
+
+<div className="text-center">
+
+<div
+className="
+inline-flex
+rounded-full
+bg-lime-100
+px-4
+py-2
+text-xs
+font-medium
+uppercase
+text-lime-700
+"
+>
+
+Partner With VOLTERRA
+
+</div>
+
+<h2 className="mt-4 text-3xl font-black text-slate-900">
+
+Let's Build Together
+
+</h2>
+
+<p className="mt-2 text-base text-slate-600">
+
+Choose how you'd like to partner with VOLTERRA Energy.
+
+</p>
+
+</div>
+
+<div className="mt-10 grid gap-8 md:grid-cols-2">
+
+{/* Investor */}
+
+<motion.div
+
+whileHover={{
+y:-8
+}}
+
+className="
+group
+rounded-[32px]
+border
+border-slate-200
+p-5
+transition-all
+duration-300
+hover:border-lime-400
+hover:shadow-xl
+"
+
+>
+
+<div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-lime-100">
+
+<BadgeDollarSign className="h-5 w-5 text-lime-600"/>
+
+</div>
+
+<h3 className="mt-3 text-xl font-bold">
+
+Become an Investor
+
+</h3>
+
+<p className="mt-2 leading-7 text-slate-600">
+
+Invest in India's growing EV charging network through VOLTERRA's flexible business models.
+
+</p>
+
+<button
+
+onClick={()=>{
+setShowPartnerModal(false);
+openInvestorForm();
+}}
+
+className="
+mt-7
+flex
+items-center
+gap-2
+rounded-xl
+bg-lime-600
+px-4
+py-2
+font-semibold
+text-white
+transition
+hover:bg-lime-700
+cursor-pointer
+"
+
+>
+
+Continue
+
+<ArrowRight className="h-5 w-5"/>
+
+</button>
+
+</motion.div>
+
+{/* Host */}
+
+<motion.div
+
+whileHover={{
+y:-8
+}}
+
+className="
+group
+rounded-[32px]
+border
+border-slate-200
+p-8
+transition-all
+duration-300
+hover:border-lime-400
+hover:shadow-xl
+
+"
+
+>
+
+<div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-lime-100">
+
+<BatteryCharging className="h-5 w-5 text-lime-600"/>
+
+</div>
+
+<h3 className="mt-3 text-xl font-bold">
+
+Need EV Charging Station
+
+</h3>
+
+<p className="mt-2 leading-7 text-slate-600">
+
+Install smart EV charging infrastructure at your apartment, hotel, office, mall, fleet depot or commercial property.
+
+</p>
+
+<button
+
+onClick={()=>{
+setShowPartnerModal(false);
+openHostForm();
+}}
+
+className="
+mt-7
+flex
+items-center
+gap-2
+rounded-xl
+bg-slate-900
+px-4
+py-2
+font-semibold
+text-white
+transition
+hover:bg-slate-800
+cursor-pointer
+"
+
+>
+
+Continue
+
+<ArrowRight className="h-5 w-5"/>
+
+</button>
+
+</motion.div>
+
+</div>
+
+</div>
+
+</motion.div>
+
+</motion.div>
+
+)}
+
+</AnimatePresence>
 
     </section>
 

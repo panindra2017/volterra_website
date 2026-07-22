@@ -10,6 +10,7 @@ import {
   Mail,
   MessageSquare,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const faqs = [
   {
@@ -68,6 +69,7 @@ const faqs = [
 ];
 
 export function FAQ() {
+    const router = useRouter()
 
   const [open, setOpen] = useState(0);
 
@@ -447,6 +449,7 @@ Charging Management System and nationwide support.
         </div>
 
         <button
+            onClick={() => router.push('/contact')}
           className="
           mt-10
           w-full
@@ -461,6 +464,7 @@ Charging Management System and nationwide support.
           duration-300
           hover:-translate-y-1
           hover:shadow-[0_20px_50px_rgba(132,204,22,.35)]
+          cursor-pointer
           "
         >
 

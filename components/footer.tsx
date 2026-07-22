@@ -541,7 +541,7 @@ export function Footer() {
       },
       {
         name: "CMS Platform",
-        href: "/cms-platform",
+        href: "/cms_platform",
       },
       {
         name: "Contact Us",
@@ -550,50 +550,23 @@ export function Footer() {
     ],
   },
 
-  {
-    title: "Products",
-    links: [
-      {
-        name: "Home Chargers",
-        href: "/products/home-chargers",
-      },
-      {
-        name: "Commercial Chargers",
-        href: "/products/commercial-chargers",
-      },
-      {
-        name: "DC Fast Chargers",
-        href: "/products/dc-fast-chargers",
-      },
-      {
-        name: "Accessories",
-        href: "/products/accessories",
-      },
-    ],
-  },
-
-  {
-    title: "Solutions",
-    links: [
-      {
-        name: "Residential",
-        href: "/solutions/residential",
-      },
-      {
-        name: "Commercial",
-        href: "/solutions/commercial",
-      },
-      {
-        name: "Fleet",
-        href: "/solutions/fleet",
-      },
-      {
-        name: "Public Charging",
-        href: "/solutions/public-charging",
-      },
-    ],
-  },
 ];
+
+const products = [
+  "Residential Chargers",
+  "Corporate Chargers",
+  "Fast DC Chargers",
+  "Ultra DC Chargers",
+];
+
+const solutions = [
+  "AI-Powered Intelligence",
+  "IoT-Enabled Infrastructure",
+  "Smart Charge Management System",
+  "Predictive & Proactive Maintenance",
+  "Seamless Digital Experience",
+  "Scalable Partnership Models",
+]
 
   const faqs = [
     {
@@ -804,26 +777,13 @@ lg:px-14 px-6 py-20">
         Products
       </h3>
 
-      <ul className="space-y-2">
-
-        {footerSections[1].links.map((link) => (
-
-          <li key={link.name}>
-
-            <Link
-              href={link.href}
-              className="text-gray-400 transition hover:text-lime-400"
-            >
-
-              {link.name}
-
-            </Link>
-
-          </li>
-
-        ))}
-
-      </ul>
+      <ul className="space-y-3">
+  {products.map((item) => (
+    <li key={item} className="text-gray-400 transition hover:text-lime-400">
+      {item}
+    </li>
+  ))}
+</ul>
 
     </div>
 
@@ -835,26 +795,14 @@ lg:px-14 px-6 py-20">
         Solutions
       </h3>
 
-      <ul className="space-y-2">
+      <ul className="space-y-3">
+  {solutions.map((item) => (
+    <li key={item} className="text-gray-400 transition hover:text-lime-400">
+      {item}
+    </li>
+  ))}
+</ul>
 
-        {footerSections[2].links.map((link) => (
-
-          <li key={link.name}>
-
-            <Link
-              href={link.href}
-              className="text-gray-400 transition hover:text-lime-400"
-            >
-
-              {link.name}
-
-            </Link>
-
-          </li>
-
-        ))}
-
-      </ul>
 
     </div>
 
@@ -875,27 +823,27 @@ lg:px-14 px-6 py-20">
 
   <div className="flex flex-wrap items-center gap-3">
 
-    <a href="#" className="hover:text-lime-400">
+    <a href="/privacy-policy" className="hover:text-lime-400">
       Privacy
     </a>
 
     <span>•</span>
 
-    <a href="#" className="hover:text-lime-400">
+    <a href="/terms-and-conditions" className="hover:text-lime-400">
       Terms
     </a>
 
     <span>•</span>
 
-    <a href="#" className="hover:text-lime-400">
+    <a href="/cookies" className="hover:text-lime-400">
       Cookies
     </a>
 
-    <span>•</span>
+    {/* <span>•</span>
 
     <a href="#" className="hover:text-lime-400">
       Sitemap
-    </a>
+    </a> */}
 
   </div>
 

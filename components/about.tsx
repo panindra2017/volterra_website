@@ -1360,7 +1360,7 @@ icon:Building2,
 
         <p className="mt-3 text-lg leading-8 text-slate-600">
            We are building an intelligent, scalable, and future-ready energy network that integrates 
-           EV charging with renewable energy, digital innovation, and smart infrastructure.Starting from Bengaluru and expanding across South India and the nation.
+           EV charging with renewable energy, digital innovation, and smart infrastructure.
         </p>
 
     </div>
@@ -1800,7 +1800,7 @@ icon:Building2,
 
       <h3
         className="
-        mt-3
+        mt-5
         text-xl
         font-bold
         text-slate-900
@@ -1823,11 +1823,11 @@ icon:Building2,
 
       {/* Divider */}
 
-      <div className="my-6 h-px bg-slate-200 " />
+      {/* <div className="my-6 h-px bg-slate-200 " /> */}
 
       {/* Footer */}
 
-      <button
+      {/* <button
         className="
         flex
         items-center
@@ -1852,7 +1852,7 @@ icon:Building2,
           "
         />
 
-      </button>
+      </button> */}
 
     </motion.div>
   );
