@@ -1453,21 +1453,22 @@ icon:Building2,
 
           <div className="text-center mb-10">
 
-            <div
+          <div
               className="
               inline-flex
               items-center
               rounded-full
               border
               border-lime-500/20
-              bg-lime-500/10
-              px-3
-              py-1
+              bg-lime-500
+              px-4
+              py-2
               text-xs
               font-semibold
               uppercase
               tracking-[3px]
-              text-lime-600
+              text-white
+              shadow-[0_20px_50px_rgba(132,204,22,.35)]
               "
             >
               Our Purpose
@@ -1637,17 +1638,20 @@ icon:Building2,
             <div
               className="
               inline-flex
+              items-center
               rounded-full
-              bg-lime-500/10
               border
               border-lime-500/20
-              px-3
-              py-1
+              bg-lime-500
+              px-4
+              py-2
               text-xs
               font-semibold
               uppercase
               tracking-[3px]
-              text-lime-600
+              text-white
+              shadow-[0_20px_50px_rgba(132,204,22,.35)]
+
               "
             >
 

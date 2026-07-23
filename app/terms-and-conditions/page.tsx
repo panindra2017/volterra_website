@@ -35,7 +35,7 @@ const chargingFactors = [
 
 export default function TermsConditionsPage() {
   return (
-    <section className="relative overflow-hidden bg-[#F8FAFC] py-28">
+    <section className="relative overflow-hidden bg-[#F8FAFC] py-15">
 
       {/* Background Glow */}
 
@@ -65,13 +65,13 @@ export default function TermsConditionsPage() {
 
           <div className="inline-flex items-center gap-2 rounded-full border border-lime-500/20 bg-lime-500/10 px-5 py-2 text-xs font-bold uppercase tracking-[3px] text-lime-600">
 
-            <Scale className="h-4 w-4" />
+            <ShieldCheck className="h-4 w-4" />
 
             Terms & Conditions
 
           </div>
 
-          <h1 className="mt-6 text-5xl font-black leading-tight text-slate-900 lg:text-6xl">
+          <h1 className="mt-6 text-4xl font-black leading-tight text-slate-900 lg:text-6xl">
 
             Terms
 
@@ -83,7 +83,7 @@ export default function TermsConditionsPage() {
 
           </h1>
 
-          <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-slate-600">
+          <p className="mx-auto mt-3 max-w-4xl text-lg leading-8 text-slate-600">
 
             Please read these Terms & Conditions carefully before using
             the Volterra Energy website, products or EV charging
@@ -91,7 +91,7 @@ export default function TermsConditionsPage() {
 
           </p>
 
-          <div className="mt-8 inline-flex rounded-full border border-slate-200 bg-white px-6 py-3 shadow-lg">
+      <div className="mt-10 inline-flex rounded-full border border-slate-200 bg-white px-6 py-3 shadow-lg">
 
             <span className="font-semibold text-slate-700">
 
@@ -118,7 +118,7 @@ export default function TermsConditionsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: .8 }}
-          className="mt-24"
+          className="mt-10"
         >
 
           <div className="rounded-[36px] border border-slate-200 bg-white p-10 shadow-[0_20px_60px_rgba(0,0,0,.06)]">

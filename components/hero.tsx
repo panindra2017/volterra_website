@@ -220,7 +220,7 @@ to-transparent
              Powering India’s 
 
 
-              <span className="block bg-linear-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent">
+              <span className="mt-2 block bg-linear-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent">
 
                 Electric Future
 

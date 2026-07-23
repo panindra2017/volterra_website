@@ -12,6 +12,9 @@ import {
   X,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+// import FloatingCalculator from "./calculator/FloatingCalculator";
+// import RevenueCalculator from "./calculator/RevenueCalculator";
+// import { chargers, type Charger } from "./calculator/chargerData";
 
 interface Product {
   id: number;
@@ -20,8 +23,13 @@ interface Product {
   power: string;
   image: string;
   description: string;
-}
 
+  inputSupply: string;
+  connector: string;
+  communication: string;
+  ip: string;
+  protocol: string;
+}
 const categories = [
   "All Products",
   "Residential",
@@ -38,7 +46,13 @@ const products: Product[] = [
     power: "3.3 kW",
     image: "/images/productsimages/3.3kw_charger.png",
     description:
-      "Smart AC charging solution designed for residential EV charging.",
+      "Smart and efficient charging solutions designed for locations where vehicles have longer parking durations.",
+
+    inputSupply: "1-Phase AC",
+    connector: "OEM Configuration",
+    communication: "Wi-Fi / 4G",
+    ip: "IP54/IP55/IP65",
+    protocol: "OCPP 1.6J",
   },
     {
     id: 2,
@@ -47,16 +61,28 @@ const products: Product[] = [
     power: "7.4 kW",
     image: "/images/productsimages/7.4kw_charger.png",
     description:
-      "Smart AC charging solution designed for residential EV charging.",
+      "Smart and efficient charging solutions designed for locations where vehicles have longer parking durations.",
+
+        inputSupply: "1-Phase AC",
+    connector: "Type-2",
+    communication: "Wi-Fi / 4G / Ethernet",
+    ip: "IP54/IP65",
+    protocol: "OCPP 1.6J",
   },
     {
     id: 3,
     name: "Volterra One",
     category: "Residential",
     power: "11 kW",
-     image: "/images/productsimages/11kw_charger.png",
+     image: "/images/productsimages/11kwcharger.png",
     description:
-      "Smart AC charging solution designed for residential EV charging.",
+      "Smart and efficient charging solutions designed for locations where vehicles have longer parking durations.",
+
+        inputSupply: "3-Phase AC",
+    connector: "Type-2",
+    communication: "Wi-Fi / 4G / Ethernet",
+    ip: "IP54/IP65",
+    protocol: "OCPP 1.6J",
   },
 
   {
@@ -64,9 +90,15 @@ const products: Product[] = [
     name: "Volterra Pro",
     category: "Corporate",
     power: "22kW",
-    image: "/images/productsimages/22kw_charger.png",
+    image: "/images/productsimages/22kwcharger.png",
     description:
-      "Reliable charging infrastructure for offices and commercial spaces.",
+      "Smart and efficient charging solutions designed for locations where vehicles have longer parking durations.",
+
+        inputSupply: "3-Phase AC",
+    connector: "Type-2",
+    communication: "Wi-Fi / 4G / Ethernet",
+    ip: "IP54/IP55/IP65",
+    protocol: "OCPP 1.6J/2.0.1",
   },
 
   {
@@ -76,7 +108,13 @@ const products: Product[] = [
     power: "30kW",
     image: "/images/productsimages/33kw_charger.png",
     description:
-      "High-speed public charging built for highways and smart cities.",
+      "High-performance DC charging infrastructure designed for faster turnaround and high-utilization locations.",
+
+        inputSupply: "3-Phase AC",
+    connector: "CCS-2",
+    communication: "4G / Ethernet",
+    ip: "IP54/IP55/IP65",
+    protocol: "OCPP 1.6J/2.0.1",
   },
 
   {
@@ -86,7 +124,13 @@ const products: Product[] = [
     power: "60kW",
     image: "/images/productsimages/60kw_charger.png",
     description:
-      "Intelligent charging infrastructure for commercial fleets.",
+      "High-performance DC charging infrastructure designed for faster turnaround and high-utilization locations.",
+
+        inputSupply: "3-Phase AC",
+    connector: "CCS-2",
+    communication: "4G / Ethernet",
+    ip: "IP54/IP55/IP65",
+    protocol: "OCPP 1.6J/2.0.1",
   },
 
   {
@@ -96,7 +140,13 @@ const products: Product[] = [
     power: "120kW",
     image: "/images/productsimages/120kw_charger.png",
     description:
-      "Intelligent charging infrastructure for commercial fleets.",
+      "High-performance DC charging infrastructure designed for faster turnaround and high-utilization locations.",
+
+       inputSupply: "3-Phase AC",
+    connector: "CCS-2",
+    communication: "4G / Ethernet",
+    ip: "IP54/IP55/IP65",
+    protocol: "OCPP 1.6J/2.0.1",
   },
 
   {
@@ -106,7 +156,13 @@ const products: Product[] = [
     power: "180kW",
     image: "/images/productsimages/180kw_charger.png",
     description:
-      "Intelligent charging infrastructure for commercial fleets.",
+      "High-performance DC charging infrastructure designed for faster turnaround and high-utilization locations.",
+
+     inputSupply: "3-Phase AC",
+    connector: "CCS-2",
+    communication: "4G / Ethernet",
+    ip: "IP54/IP55/IP65",
+    protocol: "OCPP 1.6J/2.0.1",
   },
 
   {
@@ -116,18 +172,30 @@ const products: Product[] = [
     power: "240kW",
     image: "/images/productsimages/240kw_charger.png",
     description:
-      "Intelligent charging infrastructure for commercial fleets.",
+      "High-performance DC charging infrastructure designed for faster turnaround and high-utilization locations.",
+
+     inputSupply: "3-Phase AC",
+    connector: "CCS-2",
+    communication: "4G / Ethernet",
+    ip: "IP54/IP55/IP65",
+    protocol: "OCPP 1.6J/2.0.1",
   },
 
-  {
-    id: 10,
-    name: "Volterra Infinity",
-    category: "Ultra DC",
-    power: "360kW",
-     image: "/images/productsimages/360kw_charger.png",
-    description:
-      "Intelligent charging infrastructure for commercial fleets.",
-  },
+  // {
+  //   id: 10,
+  //   name: "Volterra Infinity",
+  //   category: "Ultra DC",
+  //   power: "360kW",
+  //    image: "/images/productsimages/360kw_charger.png",
+  //   description:
+  //     "High-performance DC charging infrastructure designed for faster turnaround and high-utilization locations.",
+
+  //  inputSupply: "3-Phase AC",
+  //   connector: "CCS-2",
+  //   communication: "4G / Ethernet",
+  //   ip: "IP54/IP55/IP65",
+  //   protocol: "OCPP 1.6J/2.0.1",
+  // },
 ];
 
 export function Products() {
@@ -135,6 +203,11 @@ export function Products() {
     const router = useRouter()
 
        const [showPartnerModal, setShowPartnerModal] = useState(false);
+
+      //  const [calculatorOpen, setCalculatorOpen] = useState(false);
+
+// const [selectedCharger, setSelectedCharger] =
+//   useState<Charger | null>(null);
 
        const investorForm =
   "https://docs.google.com/forms/d/e/1FAIpQLSctRL3vu3BlnSh-BkhTGda8dszCS3Lv21sSinrKr-6VnMNjnw/viewform";
@@ -149,6 +222,24 @@ const openInvestorForm = () => {
 const openHostForm = () => {
   window.open(hostForm, "_blank");
 };
+
+// const openCalculator = (power: string) => {
+
+//   const kw = parseFloat(
+//     power.replace("kW", "").trim()
+//   );
+
+//   const charger =
+//     chargers.find(
+//       (item) => item.power === kw
+//     ) ?? chargers[0];
+
+//   setSelectedCharger(charger);
+
+//   setCalculatorOpen(true);
+
+// };
+
   const [selectedCategory, setSelectedCategory] =
     useState("All Products");
 
@@ -170,7 +261,7 @@ className="
 relative
 overflow-hidden
 bg-[#F7F9FC]
-py-32
+py-34
 "
 >
 
@@ -181,8 +272,8 @@ className="
 absolute
 left-0
 top-0
-h-[450px]
-w-[450px]
+h-112.5
+w-112.5
 rounded-full
 bg-lime-500/10
 blur-[150px]
@@ -194,8 +285,8 @@ className="
 absolute
 right-0
 bottom-0
-h-[450px]
-w-[450px]
+h-112.5
+w-112.5
 rounded-full
 bg-lime-400/10
 blur-[150px]
@@ -209,8 +300,8 @@ className="
 absolute
 inset-0
 opacity-[0.03]
-[background-image:linear-gradient(#0f172a_1px,transparent_1px),linear-gradient(90deg,#0f172a_1px,transparent_1px)]
-[background-size:70px_70px]
+bg-[linear-gradient(#0f172a_1px,transparent_1px),linear-gradient(90deg,#0f172a_1px,transparent_1px)]
+bg-size-[70px_70px]
 "
 />
 
@@ -219,7 +310,7 @@ className="
 relative
 z-10
 mx-auto
-max-w-[1500px]
+max-w-375
 px-6
 lg:px-10
 "
@@ -239,23 +330,25 @@ className="text-center"
 
 >
 
-<div
-   className="
-            inline-flex
-            items-center
-            rounded-full
-            border
-            border-lime-500/20
-            bg-lime-500/10
-            px-3
-            py-1
-            text-xs
-            font-semibold
-            tracking-widest
-            uppercase
-            text-lime-600
-            "
->
+ <div
+              className="
+              inline-flex
+              items-center
+              rounded-full
+              border
+              border-lime-500/20
+              bg-lime-500
+              px-4
+              py-2
+              text-xs
+              font-semibold
+              uppercase
+              tracking-[3px]
+              text-white
+              shadow-[0_20px_50px_rgba(132,204,22,.35)]
+
+              "
+            >
 
 Our Products
 
@@ -299,7 +392,8 @@ charging infrastructure with
 industry-leading performance,
 intelligent connectivity and
 future-ready technology.
-
+<span className="block mt-1 text-slate-600">
+✔ Certified for Quality • Safety • Performance • Reliability</span>
 </p>
 
 </motion.div>
@@ -457,6 +551,22 @@ shadow-[0_15px_45px_rgba(0,0,0,.05)]
 </div>
 
 
+<div className="mt-10 rounded-2xl bg-slate-900 px-8 py-5 text-center">
+  <p className="text-sm uppercase tracking-[3px] text-lime-400 font-semibold">
+    Connector Compatibility
+  </p>
+
+  <p className="mt-2 text-white text-lg font-medium">
+    Supports
+    <span className="text-lime-400 font-bold">
+      {" "}CCS2 • CHAdeMO • GB/T • Type 2
+    </span>
+    <span className="text-slate-300 text-sm">
+      {" "} (Subject to OEM & Project Requirements)
+    </span>
+  </p>
+</div>
+
 
 {/* ========================================= */}
 {/* PRODUCT GRID */}
@@ -612,23 +722,87 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
     {product.description}
   </p>
 
-  <div className="mt-6 flex flex-wrap gap-3">
+ <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
 
-    <span className="rounded-full bg-lime-500/10 px-4 py-2 text-sm font-medium text-lime-700">
-      Smart Charging
-    </span>
+  <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900">
+    Key Specifications
+  </h4>
 
-    <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-600">
-      OCPP
-    </span>
+  <div className="space-y-2 text-sm">
 
-    <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-600">
-      CMS Ready
-    </span>
+    <div className="flex justify-between">
+      <span className="text-slate-500">Output Power</span>
+      <span className="font-semibold text-slate-900">{product.power}</span>
+    </div>
+
+    <div className="flex justify-between">
+      <span className="text-slate-500">Input Supply</span>
+      <span className="font-semibold text-slate-900">
+        {product.inputSupply}
+      </span>
+    </div>
+
+    <div className="flex justify-between">
+      <span className="text-slate-500">Connector</span>
+      <span className="font-semibold text-slate-900">
+        {product.connector}
+      </span>
+    </div>
+
+    <div className="flex justify-between">
+      <span className="text-slate-500">Communication</span>
+      <span className="font-semibold text-slate-900">
+        {product.communication}
+      </span>
+    </div>
+
+    <div className="flex justify-between">
+      <span className="text-slate-500">Protection</span>
+      <span className="font-semibold text-slate-900">
+        {product.ip}
+      </span>
+    </div>
+
+    <div className="flex justify-between">
+      <span className="text-slate-500">Protocol</span>
+      <span className="font-semibold text-slate-900">
+        {product.protocol}
+      </span>
+    </div>
 
   </div>
 
-  {/* <div className="my-8 h-px bg-slate-200" /> */}
+  
+
+</div>
+
+  {/* <div className="mt-8">
+
+  <button
+
+    onClick={() => openCalculator(product.power)}
+
+    className="
+    w-full
+    rounded-2xl
+    bg-lime-500
+    px-6
+    py-4
+    font-semibold
+    text-white
+    transition-all
+    duration-300
+    hover:scale-[1.02]
+    hover:bg-lime-600
+    "
+
+  >
+
+    Calculate ROI
+
+  </button>
+
+</div> */}
 
   <div className="flex items-center">
 
@@ -687,10 +861,10 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
   transition={{ duration: .8 }}
   className="
   relative
-  mt-28
+  mt-16
   overflow-hidden
   rounded-[40px]
-  bg-gradient-to-r
+  bg-linear-to-r
   from-slate-900
   via-[#1F2937]
   to-slate-900
@@ -810,6 +984,23 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
 
 </div>
 
+{/* <FloatingCalculator
+  onClick={() => {
+    setSelectedCharger(chargers[5]);
+    setCalculatorOpen(true);
+  }}
+/> */}
+
+{/* <RevenueCalculator
+
+  open={calculatorOpen}
+
+  onClose={() => setCalculatorOpen(false)}
+
+  charger={selectedCharger}
+
+/> */}
+
  <AnimatePresence>
 
 {showPartnerModal && (
@@ -823,7 +1014,7 @@ exit={{ opacity: 0 }}
 className="
 fixed
 inset-0
-z-[999]
+z-999
 flex
 items-center
 justify-center

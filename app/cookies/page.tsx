@@ -39,7 +39,7 @@ const cookieTypes = [
 
 export default function CookiesPolicyPage() {
   return (
-    <section className="relative overflow-hidden bg-[#F8FAFC] py-28">
+    <section className="relative overflow-hidden bg-[#F8FAFC] py-15">
 
       {/* ====================================================== */}
       {/* Background */}
@@ -77,7 +77,7 @@ export default function CookiesPolicyPage() {
 
           </div>
 
-          <h1 className="mt-6 text-5xl font-black leading-tight text-slate-900 lg:text-6xl">
+          <h1 className="mt-6 text-4xl font-black leading-tight text-slate-900 lg:text-6xl">
 
             Cookies &
 
@@ -97,7 +97,7 @@ export default function CookiesPolicyPage() {
 
           </p>
 
-          <div className="mt-8 inline-flex rounded-full border border-slate-200 bg-white px-6 py-3 shadow-lg">
+         <div className="mt-10 inline-flex rounded-full border border-slate-200 bg-white px-6 py-3 shadow-lg">
 
             <span className="font-semibold text-slate-700">
 
@@ -124,7 +124,7 @@ export default function CookiesPolicyPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-24"
+          className="mt-10"
         >
           <div className="rounded-[36px] border border-slate-200 bg-white p-10 shadow-[0_20px_60px_rgba(0,0,0,.06)]">
 

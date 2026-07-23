@@ -701,7 +701,7 @@ lg:px-14 px-6 py-20">
 
     {/* Certifications */}
 
-    <div className="mt-8">
+    {/* <div className="mt-8">
 
       <h3 className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-lime-400">
         Certified
@@ -728,7 +728,7 @@ lg:px-14 px-6 py-20">
 
       </div>
 
-    </div>
+    </div> */}
 
   </div>
 

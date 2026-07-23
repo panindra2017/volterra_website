@@ -50,22 +50,22 @@ export default function TechnologySection() {
         >
 
          <div
-              className="
-              inline-flex
-              items-center
-              rounded-full
-              border
+          className="
+          inline-flex
+          items-center
+          rounded-full
+          border
               border-lime-500/20
-              bg-lime-500/10
-              px-4
-              py-2
-              text-xs
-              font-semibold
-              uppercase
-              tracking-[3px]
-              text-lime-600
-              "
-            >
+              bg-lime-500
+          px-4
+          py-2
+         text-xs
+            font-semibold
+            tracking-[3px]
+            uppercase
+          text-white
+          "
+        >
             OUR TECHNOLOGY
           </div>
 

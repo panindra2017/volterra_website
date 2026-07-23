@@ -38,36 +38,36 @@ const processSteps = [
       "Customized commercial proposal with project scope and pricing.",
     icon: FileText,
   },
+  // {
+  //   number: "04",
+  //   title: "Electrical Design",
+  //   description:
+  //     "Prepare optimized layouts and complete electrical planning.",
+  //   icon: CircuitBoard,
+  // },
   {
     number: "04",
-    title: "Electrical Design",
-    description:
-      "Prepare optimized layouts and complete electrical planning.",
-    icon: CircuitBoard,
-  },
-  {
-    number: "05",
     title: "Installation",
     description:
       "Professional installation and commissioning by certified engineers.",
     icon: Wrench,
   },
+  // {
+  //   number: "06",
+  //   title: "Testing",
+  //   description:
+  //     "Quality inspection, testing and compliance verification.",
+  //   icon: ShieldCheck,
+  // },
   {
-    number: "06",
-    title: "Testing",
-    description:
-      "Quality inspection, testing and compliance verification.",
-    icon: ShieldCheck,
-  },
-  {
-    number: "07",
+    number: "05",
     title: "Go Live",
     description:
       "Activate chargers and integrate with the CMS platform.",
     icon: Zap,
   },
   {
-    number: "08",
+    number: "06",
     title: "AMC & Support",
     description:
       "24×7 monitoring, preventive maintenance and customer support.",
@@ -176,30 +176,41 @@ text-lime-600
 "
 >
 
-<div className="h-px w-12 bg-lime-500"/>
+{/* <div className="h-0.5 w-12 bg-lime-500"/> */}
 
-<p
-className="
-text-sm
-font-bold
-uppercase
-tracking-[4px]
-"
->
+  <div
+          className="
+          inline-flex
+          items-center
+          rounded-full
+          border
+              border-lime-500/20
+              bg-lime-500
+          px-4
+          py-2
+         text-xs
+            font-semibold
+            tracking-[3px]
+            uppercase
+          text-white
+          shadow-[0_20px_50px_rgba(132,204,22,.35)]
+
+          "
+        >
 
 OUR PROCESS
 
-</p>
+</div>
 
-<div className="h-px w-12 bg-lime-500"/>
+{/* <div className="h-0.5 w-12 bg-lime-500"/> */}
 
 </div>
 
 <h2
 className="
 mt-3
-text-4xl
-lg:text-5xl
+text-3xl
+lg:text-4xl
 font-black
 leading-tight
 text-slate-900
@@ -219,7 +230,7 @@ Powering Your Journey,
 <p
 className="
 mx-auto
-mt-3
+mt-2
 max-w-4xl
 text-lg
 leading-7
@@ -241,7 +252,7 @@ for homes, businesses and public networks.
 {/* ========================================= */}
 
 
-    <div className="mt-12 grid gap-6 lg:grid-cols-4">
+    <div className="mt-12 grid gap-6 lg:grid-cols-3">
 
   {processSteps.map((step, index) => {
 

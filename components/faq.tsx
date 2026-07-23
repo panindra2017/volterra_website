@@ -189,15 +189,15 @@ Frequently Asked Questions
 
 </p>
 
-<div className="h-px w-12 bg-lime-500"/>
+<div className="h-0.5 w-12 bg-lime-500"/>
 
 </div>
 
 <h2
 className="
 mt-3
-text-4xl
-lg:text-5xl
+text-3xl
+lg:text-4xl
 font-black
 leading-tight
 text-slate-900
@@ -217,7 +217,7 @@ Everything You Need {" "}
 <p
 className="
 mx-auto
-mt-3
+mt-2
 max-w-4xl
 text-lg
 leading-7

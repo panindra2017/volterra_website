@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
+
 
 import {
   Phone,
@@ -18,7 +20,7 @@ const contactInfo = [
     icon: Phone,
     title: "Call Us",
     value: "+91 80954 34443",
-    sub: "Mon - Sat | 9:00 AM - 7:00 PM",
+    sub: "Mon - Sat | 9:30 AM - 6:30 PM",
   },
 
   {
@@ -44,6 +46,112 @@ const contactInfo = [
 ];
 
 export function Contact() {
+
+  const [formData, setFormData] = useState({
+  fullName: "",
+  company: "",
+  phone: "",
+  email: "",
+  location: "",
+  businessType: "",
+  requirements: "",
+});
+
+const [loading, setLoading] = useState(false);
+
+const [success, setSuccess] = useState("");
+
+const [error, setError] = useState("");
+
+const handleChange = (
+  e: React.ChangeEvent<
+    HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+  >
+) => {
+  setFormData((prev) => ({
+    ...prev,
+    [e.target.name]: e.target.value,
+  }));
+};
+
+const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
+
+  setSuccess("");
+  setError("");
+
+  // Required Fields
+  if (
+    !formData.fullName ||
+    !formData.phone ||
+    !formData.email ||
+    !formData.location ||
+    !formData.businessType ||
+    !formData.requirements
+  ) {
+    setError("Please fill in all required fields.");
+    return;
+  }
+
+  // Email Validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(formData.email)) {
+    setError("Please enter a valid email address.");
+    return;
+  }
+
+  // Phone Validation (10 digits)
+  const phoneRegex = /^[6-9]\d{9}$/;
+
+  if (!phoneRegex.test(formData.phone)) {
+    setError("Please enter a valid mobile number.");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message);
+    }
+
+    setSuccess(
+      "Thank you! Your request has been submitted successfully."
+    );
+
+    setFormData({
+      fullName: "",
+      company: "",
+      phone: "",
+      email: "",
+      location: "",
+      businessType: "",
+      requirements: "",
+    });
+
+  } catch (err) {
+    console.error(err);
+
+    setError(
+      "Unable to submit your request. Please try again."
+    );
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
 
@@ -136,23 +244,24 @@ className="text-center"
 
 >
 
-<div
-   className="
-            inline-flex
-            items-center
-            rounded-full
-            border
-            border-lime-500/20
-            bg-lime-500/10
-            px-3
-            py-1
-            text-xs
-            font-semibold
-            tracking-widest
-            uppercase
-            text-lime-600
-            "
->
+ <div
+              className="
+              inline-flex
+              items-center
+              rounded-full
+              border
+              border-lime-500/20
+              bg-lime-500
+              px-4
+              py-2
+              text-xs
+              font-semibold
+              uppercase
+              tracking-[3px]
+              text-white
+              shadow-[0_20px_50px_rgba(132,204,22,.35)]
+              "
+            >
 
 Contact Us
 
@@ -431,7 +540,7 @@ help you at every step.
 
               <p className="text-slate-300">
 
-                9:00 AM - 7:00 PM
+                9:30 AM - 6:30 PM
 
               </p>
 
@@ -492,7 +601,7 @@ help you at every step.
 {/* FORM */}
 {/* ====================================== */}
 
-<form className="mt-7">
+<form  onSubmit={handleSubmit} className="mt-7">
 
   <div className="grid gap-6 md:grid-cols-2">
 
@@ -501,7 +610,7 @@ help you at every step.
     <div>
 
       <label className="mb-2 block font-semibold text-slate-800">
-        Full Name
+        Full Name  <span className="text-red-500">*</span>
       </label>
 
       <div className="relative">
@@ -519,8 +628,12 @@ help you at every step.
         />
 
         <input
-          type="text"
-          placeholder="Enter your name"
+  type="text"
+  name="fullName"
+  value={formData.fullName}
+  onChange={handleChange}
+  placeholder="Enter your name"
+  required
           className="
           h-12
           w-full
@@ -567,8 +680,11 @@ help you at every step.
         />
 
         <input
-          type="text"
-          placeholder="Your company"
+            type="text"
+  name="company"
+  value={formData.company}
+  onChange={handleChange}
+  placeholder="Your company"
           className="
           h-12
           w-full
@@ -597,7 +713,7 @@ help you at every step.
     <div>
 
       <label className="mb-2 block font-semibold text-slate-800">
-        Phone Number
+        Phone Number  <span className="text-red-500">*</span>
       </label>
 
       <div className="relative">
@@ -615,8 +731,12 @@ help you at every step.
         />
 
         <input
-          type="tel"
-          placeholder="+91 XXXXX XXXXX"
+  type="tel"
+  name="phone"
+  value={formData.phone}
+  onChange={handleChange}
+  placeholder="+91 XXXXX XXXXX"
+  required
           className="
           h-12
           w-full
@@ -645,7 +765,7 @@ help you at every step.
     <div>
 
       <label className="mb-2 block font-semibold text-slate-800">
-        Email Address
+        Email Address  <span className="text-red-500">*</span>
       </label>
 
       <div className="relative">
@@ -663,8 +783,12 @@ help you at every step.
         />
 
         <input
-          type="email"
-          placeholder="example@email.com"
+  type="email"
+  name="email"
+  value={formData.email}
+  onChange={handleChange}
+  placeholder="example@email.com"
+  required
           className="
           h-12
           w-full
@@ -693,7 +817,7 @@ help you at every step.
     <div>
 
       <label className="mb-2 block font-semibold text-slate-800">
-        Project Location
+        Project Location  <span className="text-red-500">*</span>
       </label>
 
       <div className="relative">
@@ -711,8 +835,12 @@ help you at every step.
         />
 
         <input
-          type="text"
-          placeholder="City / State"
+  type="text"
+  name="location"
+  value={formData.location}
+  onChange={handleChange}
+  placeholder="City / State"
+  required
           className="
           h-12
           w-full
@@ -741,29 +869,33 @@ help you at every step.
     <div>
 
       <label className="mb-2 block font-semibold text-slate-800">
-        Business Type
+        Business Type  <span className="text-red-500">*</span>
       </label>
 
-      <select
-        className="
-        h-12
-        w-full
-        rounded-2xl
-        border
-        border-slate-200
-        bg-slate-50
-        px-5
-        outline-none
-        transition-all
-        duration-300
-        focus:border-lime-500
-        focus:bg-white
-        focus:ring-4
-        focus:ring-lime-500/10
-        "
-      >
+    <select
+    required
+  name="businessType"
+  value={formData.businessType}
+  onChange={handleChange}
+  className="
+    h-12
+    w-full
+    rounded-2xl
+    border
+    border-slate-200
+    bg-slate-50
+    px-5
+    outline-none
+    transition-all
+    duration-300
+    focus:border-lime-500
+    focus:bg-white
+    focus:ring-4
+    focus:ring-lime-500/10
+  "
+>
 
-        <option>Select Business Type</option>
+       <option value="">Select Business Type</option>
         <option>Residential Community</option>
         <option>Hotel</option>
         <option>Corporate Office</option>
@@ -782,12 +914,15 @@ help you at every step.
   <div className="mt-6">
 
     <label className="mb-3 block font-semibold text-slate-800">
-      Project Requirements
+      Project Requirements  <span className="text-red-500">*</span>
     </label>
 
-    <textarea
-      rows={3}
-      placeholder="Tell us about your EV charging project..."
+   <textarea
+  rows={3}
+  name="requirements"
+  value={formData.requirements}
+  onChange={handleChange}
+  placeholder="Tell us about your EV charging project..."
       className="
       w-full
       rounded-2xl
@@ -811,7 +946,9 @@ help you at every step.
 
   <div className="mt-6">
 
-   <button
+ <button
+  type="submit"
+  disabled={loading}
   className="
   flex
   w-full
@@ -830,21 +967,68 @@ help you at every step.
   duration-300
   hover:-translate-y-1
   hover:shadow-[0_20px_50px_rgba(132,204,22,.35)]
-  cursor-pointer
+  disabled:cursor-not-allowed
+  disabled:opacity-60
   "
 >
-  <span>Book Free Site Survey</span>
+  {loading ? "Submitting..." : "Submit The Details"}
 
-  <ArrowRight
-    className="
-    h-5
-    w-5
-    transition-transform
-    duration-300
-    group-hover:translate-x-1
-    "
-  />
+  {!loading && (
+    <ArrowRight
+      className="
+      h-5
+      w-5
+      transition-transform
+      duration-300
+      "
+    />
+  )}
 </button>
+
+{success && (
+  <div
+    className="
+      mt-6
+      rounded-2xl
+      border
+      border-green-200
+      bg-green-50
+      p-5
+      text-green-700
+    "
+  >
+    <h4 className="font-bold">
+      ✅ Request Submitted Successfully
+    </h4>
+
+    <p className="mt-2">
+      Thank you for contacting VOLTERRA Energy.
+      Our EV charging experts will contact you shortly.
+    </p>
+  </div>
+)}
+
+{error && (
+  <div
+    className="
+      mt-6
+      rounded-2xl
+      border
+      border-red-200
+      bg-red-50
+      p-5
+      text-red-700
+    "
+  >
+    <h4 className="font-bold">
+      Unable to Submit
+    </h4>
+
+    <p className="mt-2">
+      {error}
+    </p>
+  </div>
+)}
 
   </div>
 
@@ -924,7 +1108,7 @@ help you at every step.
           items-center
           justify-center
           rounded-3xl
-          bg-lime-500/15
+          bg-lime-500/25
           "
         >
 
@@ -960,45 +1144,45 @@ help you at every step.
 
           Volterra Energy Pvt. Ltd.
 
-          <br /><br />
+          <br />
 
-          Bengaluru,
-
-          Karnataka,
-
-          India
+          #3, Second Floor 
+          80 Feet Road, BSK 3 Stage
+          Srinivas Nagar, Bangalore
+          Karnataka, India - 560050
 
         </p>
 
         <button
-          className="
-          mt-10
-          inline-flex
-          items-center
-          gap-3
-          rounded-2xl
-          bg-linear-to-r
-          from-lime-500
-          to-green-600
-          px-8
-          py-4
-          font-semibold
-          text-white
-          transition-all
-          duration-300
-          hover:-translate-y-1
-          hover:shadow-[0_20px_50px_rgba(132,204,22,.35)]
-          "
-        >
-
-          Open Google Maps
-
-          <ArrowRight
-            className="h-5 w-5"
-          />
-
-        </button>
-
+  onClick={() =>
+    window.open(
+      "https://www.google.com/maps/@12.9107832,77.5963265,14z?entry=ttu&g_ep=EgoyMDI2MDcyMC4wIKXMDSoASAFQAw%3D%3D",
+      "_blank"
+    )
+  }
+  className="
+    mt-10
+    inline-flex
+    items-center
+    gap-3
+    rounded-2xl
+    bg-linear-to-r
+    from-lime-500
+    to-green-600
+    px-8
+    py-4
+    font-semibold
+    text-white
+    transition-all
+    duration-300
+    hover:-translate-y-1
+    hover:shadow-[0_20px_50px_rgba(132,204,22,.35)]
+    cursor-pointer
+  "
+>
+  Open Google Maps
+  <ArrowRight className="h-5 w-5" />
+</button>
       </div>
 
       {/* ================================= */}

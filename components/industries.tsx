@@ -152,7 +152,7 @@ export default function Industries() {
   const Icon = current.icon;
 
   return (
-    <section className="relative overflow-hidden bg-[#F8FAFC] py-32"
+    <section className="relative overflow-hidden bg-[#F8FAFC] py-34"
     >
       {/* Background Glow */}
 
@@ -172,23 +172,25 @@ export default function Industries() {
                   className="mb-20 text-center"
                 >
         
-                  <div
-                    className="
-                    inline-flex
-                    items-center
-                    rounded-full
-                    border
-                    border-lime-500/20
-                    bg-lime-500/10
-                    px-3
-                    py-1
-                    text-xs
-                    font-semibold
-                    tracking-widest
-                    uppercase
-                    text-lime-600
-                    "
-                  >
+                <div
+              className="
+              inline-flex
+              items-center
+              rounded-full
+              border
+              border-lime-500/20
+              bg-lime-500
+              px-4
+              py-2
+              text-xs
+              font-semibold
+              uppercase
+              tracking-[3px]
+              text-white
+              shadow-[0_20px_50px_rgba(132,204,22,.35)]
+
+              "
+            >
         
                       WHO WE SERVE
         

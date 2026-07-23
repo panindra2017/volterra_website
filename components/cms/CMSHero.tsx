@@ -287,7 +287,7 @@ export default function CMSHero() {
 
    {/* Hero Content */}
 
-<div className="relative z-10 flex min-h-[92vh] items-center justify-center mt-12">
+<div className="relative z-10 flex min-h-[92vh] items-center justify-center mt-14">
 
   <div className="mx-auto max-w-7xl px-6">
 

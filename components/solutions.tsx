@@ -240,8 +240,8 @@ const businessModels = [
   {
     id: "revenue",
     number: "05",
-    title: "Revenue",
-    subtitle: "Revenue Sharing",
+    title: "Revenue Sharing",
+    subtitle: "Strategic Revenue-Sharing Partnerships",
     icon: HandCoins,
     color: "from-orange-500 to-amber-500",
 
@@ -391,14 +391,18 @@ const openHostForm = () => {
           inline-flex
           items-center
           rounded-full
-          bg-green-700
-          px-3
+          border
+              border-lime-500/20
+              bg-lime-500
+          px-4
           py-2
          text-xs
             font-semibold
-            tracking-widest
+            tracking-[3px]
             uppercase
           text-white
+          shadow-[0_20px_50px_rgba(132,204,22,.35)]
+
           "
         >
           THE CHALLENGES
@@ -420,7 +424,7 @@ const openHostForm = () => {
 
           India's EV Revolution
 
-          <span className="mt-2 block text-green-700">
+          <span className="mt-2 block text-lime-600">
 
             Needs Smarter Infrastructure
 
@@ -867,14 +871,16 @@ const openHostForm = () => {
               rounded-full
               border
               border-lime-500/20
-              bg-lime-500/10
+              bg-lime-500
               px-4
               py-2
               text-xs
               font-semibold
               uppercase
               tracking-[3px]
-              text-lime-600
+              text-white
+              shadow-[0_20px_50px_rgba(132,204,22,.35)]
+
               "
             >
               Our Solution
@@ -1132,14 +1138,16 @@ const openHostForm = () => {
               rounded-full
               border
               border-lime-500/20
-              bg-lime-500/10
+              bg-lime-500
               px-4
               py-2
               text-xs
               font-semibold
               uppercase
               tracking-[3px]
-              text-lime-600
+              text-white
+              shadow-[0_20px_50px_rgba(132,204,22,.35)]
+
               "
             >
               Business Models
