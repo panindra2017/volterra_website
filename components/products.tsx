@@ -398,6 +398,8 @@ future-ready technology.
 
 </motion.div>
 
+
+
 <motion.div
 
 initial={{ opacity:0 }}
@@ -548,23 +550,6 @@ shadow-[0_15px_45px_rgba(0,0,0,.05)]
 
 </div>
 
-</div>
-
-
-<div className="mt-10 rounded-2xl bg-slate-900 px-8 py-5 text-center">
-  <p className="text-sm uppercase tracking-[3px] text-lime-400 font-semibold">
-    Connector Compatibility
-  </p>
-
-  <p className="mt-2 text-white text-lg font-medium">
-    Supports
-    <span className="text-lime-400 font-bold">
-      {" "}CCS2 • CHAdeMO • GB/T • Type 2
-    </span>
-    <span className="text-slate-300 text-sm">
-      {" "} (Subject to OEM & Project Requirements)
-    </span>
-  </p>
 </div>
 
 
@@ -848,7 +833,49 @@ shadow-[0_20px_60px_rgba(0,0,0,.06)]
 
 </div>
 
+<div
+  className="
+  mt-14
+  rounded-2xl
+  border
+  border-slate-200
+  bg-white
+  px-8
+  py-5
+  text-center
+  shadow-sm
+  "
+>
+  <p className="text-sm font-bold uppercase tracking-[3px] text-lime-600">
+    Connector Compatibility
+  </p>
 
+  <p className="mt-2 text-lg font-medium text-slate-700">
+    Supports{" "}
+    <span className="font-bold text-slate-900">
+      CCS2
+    </span>
+    <span className="mx-2 text-lime-500">•</span>
+
+    <span className="font-bold text-slate-900">
+      CHAdeMO
+    </span>
+    <span className="mx-2 text-lime-500">•</span>
+
+    <span className="font-bold text-slate-900">
+      GB/T
+    </span>
+    <span className="mx-2 text-lime-500">•</span>
+
+    <span className="font-bold text-slate-900">
+      Type 2
+    </span>
+
+    <span className="ml-2 text-sm text-slate-500">
+      (Subject to OEM & Project Requirements)
+    </span>
+  </p>
+</div>
 
 {/* ========================================= */}
 {/* CTA */}
